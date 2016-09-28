@@ -31,4 +31,10 @@ class TasksController < ApplicationController
 
   def update
   end
+
+  def create
+    @params = params
+    @title = params["title"]
+    @description = params["description"]
+  end
 end

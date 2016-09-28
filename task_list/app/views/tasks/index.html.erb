@@ -2,6 +2,13 @@
 
 <% @tasks.each do |task| %>
 <h1><%= link_to("#{task.title}", show_path(task[:id])) %></h1>
+<p>
+  <%=link_to("Delete", destroy_path) %>
+</p>
 <% end %>
 
+<p>
+  <%=link_to("Add a Task", new_path) %>
+</p>
+<!-- <button type="submit"> Delete a Task</button> -->
 <!-- <p>Find me in app/views/tasks/index.html.erb</p> -->
