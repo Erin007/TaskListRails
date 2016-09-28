@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  get 'tasks/index'
+
+  root to: 'tasks#index', as: 'index'
+
+  get 'tasks/index' => "tasks#index"
 
   get 'tasks/new'
 
   get 'tasks/show'
+  get 'tasks/show/:id' => 'tasks#show', as: 'show'
 
   get 'tasks/destroy'
 

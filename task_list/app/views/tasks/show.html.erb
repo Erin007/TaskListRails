@@ -1,2 +1,16 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<article>
+  <h2> <%= @task_of_interest[:title]%> </h2>
+
+  <h3> <%= @task_of_interest[:description] %></h3>
+
+<p>
+
+ <% if @task_of_interest[:completed] == true %>
+    ✔︎ This task is complete!
+   <%else%>
+    ❏This task is NOT completed yet
+   <%end %>
+</p>
+
+</article>
+<!-- <p>Find me in app/views/tasks/show.html.erb</p> -->
