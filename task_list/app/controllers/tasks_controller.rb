@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   end
 
   def new
+    @task = Task.new
   end
 
   def show
@@ -24,6 +25,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task.destroy
   end
 
   def edit
@@ -32,9 +34,23 @@ class TasksController < ApplicationController
   def update
   end
 
+
   def create
-    @params = params
-    @title = params["title"]
-    @description = params["description"]
+    @task = Task.new(title: params[:title], description: params[:description])
+    @task.save
+
+    if @task.save
+        redirect_to index_path, alert: "Task successfully added."
+    else
+        redirect_to new_path, alert: "Error adding task."
+    end
   end
+
+
+  private
+   def task_params
+     #Tells Rails you can accept submits from the form
+     params.require(:task).permit(:title, :description)
+   end
+
 end

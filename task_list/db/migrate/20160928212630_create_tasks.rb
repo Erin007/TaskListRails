@@ -5,7 +5,6 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description
       t.boolean :completed
       t.datetime :completed_at
-
       t.timestamps null: false
     end
   end

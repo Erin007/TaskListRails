@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'tasks/index' => "tasks#index"
 
   get 'tasks/new' => 'tasks#new', as: 'new'
+  
   post 'tasks/create' => 'tasks#create', as: 'create'
 
   get 'tasks/show'
