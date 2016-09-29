@@ -25,16 +25,21 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    Task.find(params[:id].to_i).destroy
+    task.destroy
     redirect_to :index
+  end
+
+  def task
+    @task ||= Task.find(params[:id].to_i)
   end
 
   def edit
   end
 
   def update
+    task.update_attributes(task_params)
+    redirect_to action: :show, id: params[:id]
   end
-
 
   def create
     @task = Task.new(title: params[:title], description: params[:description])
@@ -50,8 +55,8 @@ class TasksController < ApplicationController
 
   private
    def task_params
-     #Tells Rails you can accept submits from the form
-     params.require(:task).permit(:title, :description)
+     #Tells Rails which parameters can be changed
+     params.require(:task).permit(:title, :description, :completed)
    end
 
 end

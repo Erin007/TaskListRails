@@ -6,9 +6,10 @@
 <p>
 
  <% if @task_of_interest[:completed] == true %>
-    ✔︎ This task was completed on <%=@task_of_interest[:completed_at]%>
+    ✔︎ This task was completed on <%=@task_of_interest[:updated_at]%>
    <%else%>
     ❏This task is NOT completed yet
+      <%= button_to "Complete Task", { action: "update", id: @task_of_interest.id, task: { completed: true} }, method: :patch %>
    <%end %>
 </p>
 

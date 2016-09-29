@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'tasks/edit'
 
-  get 'tasks/update'
+  patch 'tasks/update' => "tasks#update", as: 'update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
