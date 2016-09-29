@@ -25,7 +25,8 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
+    Task.find(params[:id].to_i).destroy
+    redirect_to :index
   end
 
   def edit

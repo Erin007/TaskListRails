@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   get 'tasks/index' => "tasks#index"
 
   get 'tasks/new' => 'tasks#new', as: 'new'
-  
+
   post 'tasks/create' => 'tasks#create', as: 'create'
 
   get 'tasks/show'
   get 'tasks/show/:id' => 'tasks#show', as: 'show'
 
   get 'tasks/destroy'=> "tasks#destroy", as: 'destroy'
+  delete 'tasks/:id/destroy' => 'tasks#destroy'
 
   get 'tasks/edit'
 

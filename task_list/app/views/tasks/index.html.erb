@@ -1,9 +1,11 @@
 <h1>Task List</h1>
+<p><%= @welcome_msg %></p>
 
 <% @tasks.each do |task| %>
 <h1><%= link_to("#{task.title}", show_path(task[:id])) %></h1>
 <p>
-  <%=link_to("Delete", destroy_path) %>
+  <%= button_to "Delete Task", { action: "destroy", id: task.id }, 
+                                method: :delete, data: { confirm: "Are you sure?" } %>
 </p>
 <% end %>
 
