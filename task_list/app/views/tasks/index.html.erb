@@ -2,9 +2,15 @@
 <p><%= @welcome_msg %></p>
 
 <% @tasks.each do |task| %>
-<h1><%= link_to("#{task.title}", show_path(task[:id])) %></h1>
+
+  <% if task.completed == true %>
+      <h1><%= link_to("✔︎#{task.title}", show_path(task[:id])) %></h1>
+    <%else%>
+      <h1><%= link_to("❏#{task.title}", show_path(task[:id])) %></h1>
+    <%end %>
+
 <p>
-  <%= button_to "Delete Task", { action: "destroy", id: task.id }, 
+  <%= button_to "Delete Task", { action: "destroy", id: task.id },
                                 method: :delete, data: { confirm: "Are you sure?" } %>
 </p>
 <% end %>
