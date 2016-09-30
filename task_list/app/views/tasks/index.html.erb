@@ -3,17 +3,22 @@
   <p id="add"><%=link_to("Add new task", new_path) %></p>
   <h1>Task List</h1>
   <p>
-  <% @tasks.each do |task| %>
 
+  <% @tasks.each do |task| %>
+    <ul>
     <% if task.completed == true %>
-        <h2><%= link_to("✔︎#{task.title}", show_path(task[:id])) %></h2>
+        <li><h2><%= link_to("✔︎#{task.title}", show_path(task[:id])) %></h2></li>
       <%else%>
-        <h2><%= link_to("❏#{task.title}", show_path(task[:id])) %></h2>
+        <li><h2><%= link_to("❏#{task.title}", show_path(task[:id])) %></h2></li>
+
+        <li><p class="complete-button-index"><%= button_to "Complete", { action: "update", id: task.id, task: { completed: true} }, method: :patch %></p></li>
       <%end %>
   </p>
 
-  <p class="delete-button"><%= button_to "Delete", { action: "destroy", id: task.id },
-                                  method: :delete, data: { confirm: "Are you sure?" } %></p>
+  <li><p class="delete-button"><%= button_to "Delete", { action: "destroy", id: task.id },
+
+                              method: :delete, data: { confirm: "Are you sure?" } %></p></li>
+    </ul>
   <% end %>
 
 </div>

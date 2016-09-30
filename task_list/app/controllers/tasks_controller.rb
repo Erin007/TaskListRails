@@ -37,7 +37,7 @@ class TasksController < ApplicationController
 
   def update
     task.update_attributes(task_params)
-    redirect_to action: :show, id: params[:id]
+    redirect_to request.referrer #redirects to whatever page you came from with the updated content
   end
 
   def create
@@ -50,7 +50,6 @@ class TasksController < ApplicationController
         redirect_to new_path, alert: "Error adding task."
     end
   end
-
 
   private
    def task_params
