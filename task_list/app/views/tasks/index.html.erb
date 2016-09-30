@@ -12,7 +12,7 @@
       <%end %>
   </p>
 
-  <p class="delete-button"><%= button_to "Delete Task", { action: "destroy", id: task.id },
+  <p class="delete-button"><%= button_to "Delete", { action: "destroy", id: task.id },
                                   method: :delete, data: { confirm: "Are you sure?" } %></p>
   <% end %>
 
