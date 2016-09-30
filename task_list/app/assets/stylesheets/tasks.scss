@@ -38,14 +38,21 @@ h1 {
   font-size: 3em;
   text-decoration: underline;
   text-align: center;
+  font-family: courier;
 }
 
 h2{
   font-size: 2em;
 }
 
-h3, .completion{
+h3, .completion, label{
   font-family: courier;
+}
+
+form{
+  text-align: left;
+  font-size: 2em;
+  margin-left: 25%;
 }
 
 #add, #full-list {
@@ -81,4 +88,12 @@ body {
 
 .delete-button{
   margin-top: -5%;
+}
+
+input, textarea {
+  border: 2px solid #abced4;
+  border-radius: 5%;
+  height: 2em;
+  font-family: courier;
+  font-size: 1em;
 }
