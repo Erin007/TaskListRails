@@ -31,7 +31,7 @@ a{
 }
 
 a:hover {
-  color: #757575;
+  text-decoration: underline;
 }
 
 h1 {
@@ -53,10 +53,13 @@ h3, .completion{
   border-radius: 100%;
   text-align: center;
   width: 20%;
+  font-family: courier;
   font-size: 1.25em;
   float: right;
-  padding: 3%;
-  margin-top: -6%;
+  padding: 1%;
+  margin-top: 5%;
+  margin-right: 5%;
+
 }
 
 body {
