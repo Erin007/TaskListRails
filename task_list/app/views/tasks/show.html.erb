@@ -1,12 +1,12 @@
-<article>
+<article class="post-it">
   <!--Add in a link that goes back to the index page  -->
   <h2> <%= @task_of_interest[:title]%> </h2>
 
   <h3> <%= @task_of_interest[:description] %></h3>
 
-<p>
+<p class="completion">
  <% if @task_of_interest[:completed] == true %>
-    ✔︎ This task was completed on <%=@task_of_interest.updated_at.to_formatted_s(:long)%>
+    ✔︎ Task completed on: <%=@task_of_interest.updated_at.to_formatted_s(:long)%>
    <%else%>
     ❏This task is NOT completed yet
       <%= button_to "Complete Task", { action: "update", id: @task_of_interest.id, task: { completed: true} }, method: :patch %>
