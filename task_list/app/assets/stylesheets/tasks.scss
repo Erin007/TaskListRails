@@ -48,18 +48,27 @@ h3, .completion{
   font-family: courier;
 }
 
-#add {
+#add, #full-list {
   border: solid red 5px;
   border-radius: 100%;
   text-align: center;
-  width: 20%;
+  float: right;
   font-family: courier;
   font-size: 1.25em;
-  float: right;
   padding: 1%;
+}
+
+#add{
   margin-top: 5%;
   margin-right: 5%;
+  width: 20%;
+}
 
+#full-list {
+  padding: 1%;
+  margin-top: 1%;
+  margin-right: 10%;
+  width: 10%;
 }
 
 body {
