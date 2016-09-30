@@ -1,22 +1,20 @@
-<h1>Task List</h1>
-<p><%= @welcome_msg %></p>
 
-<% @tasks.each do |task| %>
+<div class="post-it">
+  <h1>Task List</h1>  <p id="add"><%=link_to("Add a Task", new_path) %></p>
+  <p>
+  <% @tasks.each do |task| %>
 
-  <% if task.completed == true %>
-      <h1><%= link_to("✔︎#{task.title}", show_path(task[:id])) %></h1>
-    <%else%>
-      <h1><%= link_to("❏#{task.title}", show_path(task[:id])) %></h1>
-    <%end %>
+    <% if task.completed == true %>
+        <h2><%= link_to("✔︎#{task.title}", show_path(task[:id])) %></h2>
+      <%else%>
+        <h2><%= link_to("❏#{task.title}", show_path(task[:id])) %></h2>
+      <%end %>
+  </p>
 
-<p>
-  <%= button_to "Delete Task", { action: "destroy", id: task.id },
-                                method: :delete, data: { confirm: "Are you sure?" } %>
-</p>
-<% end %>
+  <p class="delete-button"><%= button_to "Delete Task", { action: "destroy", id: task.id },
+                                  method: :delete, data: { confirm: "Are you sure?" } %></p>
+  <% end %>
 
-<p>
-  <%=link_to("Add a Task", new_path) %>
-</p>
+</div>
 <!-- <button type="submit"> Delete a Task</button> -->
 <!-- <p>Find me in app/views/tasks/index.html.erb</p> -->

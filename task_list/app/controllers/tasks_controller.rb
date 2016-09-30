@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   def index
-    @welcome_msg = "Let's get down to business"
     @tasks = Task.all
   end
 
