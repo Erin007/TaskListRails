@@ -1,3 +1,11 @@
+# Erin's Reflection 
+
+This was by far my least favorite project so far, and I was confused most of the time. It was so difficult to know what was default Rails automagic and how to go in to change those attributes. Troubleshooting was really tricky because sometimes the issue was with something Rails automatically did - like buttons automatically going to push methods. For example, figuring out how to target different sections of a form written in erb rather than html for formatting was frustrating. I have a little hacky solution where I stuck in empty p tags so there would be space between the different form sections, but I don't know how to achieve this in a more conventional way. I'm still not sure how to style buttons. I'm not sure how to make my "complete", "edit" and "delete" buttons line up inline with the task. I have logic in my view for whether to show the empty box or the check mark and I'm pretty sure it shouldn't be there because we're not supposed to have logic there. 
+
+My chair pair helped me separate my update method into two methods wherein I updated the completion status separately. This was a better way than I had originally because the completion status needed to go to current page with the updates, but when editing the update needed to appear on a different page. My chair pair also used radio buttons for the completion status, which I don't know how to do. 
+
+
+
 # Task List Rails ✅
 We are going to build a Task List in Rails. This web application will enable us to keep track of list of tasks with the functionality to add, edit and remove tasks from a list.
 
