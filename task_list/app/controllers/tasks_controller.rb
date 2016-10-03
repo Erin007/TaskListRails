@@ -33,13 +33,19 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id].to_i)
   end
 
   def update
     task.update_attributes(task_params)
-    redirect_to request.referrer #redirects to whatever page you came from with the updated content
+    redirect_to index_path
   end
 
+  def complete
+    task.update_attributes(task_params)
+    redirect_to request.referrer #redirects to whatever page you came from with the updated c
+  end
+  
   def create
     @task = Task.new(title: params[:title], description: params[:description])
     @task.save
