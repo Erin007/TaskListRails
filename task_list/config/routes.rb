@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
   root to: 'tasks#index', as: 'index'
 
   get 'tasks/index' => "tasks#index"
@@ -21,6 +23,8 @@ Rails.application.routes.draw do
 
   get 'tasks/complete' => "tasks#complete"
   patch 'tasks/complete/:id' => "tasks#complete", as: 'complete'
+
+  get "/auth/:provider/callback" => "sessions#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

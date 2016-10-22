@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     redirect_to :index
   end
 
-  def task
+ def task
     @task ||= Task.find(params[:id].to_i)
   end
 

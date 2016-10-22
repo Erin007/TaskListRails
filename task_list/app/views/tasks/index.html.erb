@@ -11,11 +11,11 @@
       <%else%>
         <li><h2><%= link_to("❏#{task.title}", show_path(task[:id])) %></h2></li>
 
-        <li><p class="complete-button-index"><%= button_to "Complete", { action: "update", id: task.id, task: { completed: true} }, method: :patch %></p></li>
+        <li><p class="complete-button-index"><%= button_to "✔︎", { action: "update", id: task.id, task: { completed: true} }, method: :patch %></p></li>
       <%end %>
   </p>
 
-  <li><p class="delete-button"><%= button_to "Delete", { action: "destroy", id: task.id },
+  <li><p class="delete-button"><%= button_to "✗", { action: "destroy", id: task.id },
 
                               method: :delete, data: { confirm: "Are you sure?" } %></p></li>
     </ul>

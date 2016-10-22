@@ -1,6 +1,20 @@
 require 'test_helper'
 
 class TasksControllerTest < ActionController::TestCase
+
+  test "Make sure that a user can see their tasks." do
+    session[:user_id] = users(:ada)
+    get :show, id: tasks(:adas_task).id
+    assert_response :success
+  end
+
+  test "Make sure a user cannot see another user's tasks" do
+    session[:user_id] = users(:ada)
+    get :show, id: tasks(:babbages_task).id
+    assert_response :redirect
+    assert_equal flash[:notice], "You do not have access to that task."
+  end
+
   test "should get index" do
     get :index
     assert_response :success

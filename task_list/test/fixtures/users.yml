@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#These fixtures will mimic users that have already logged in the past - we assume that they can pull in their information from Github. The mock hash in the setup method in the test_helper is there to test whether we can correctly connect to Github for authentication
+ada:
+  id: 1
+  uid: 8675309
+  name: "Ada Lovelace"
+  provider: "github"
+  email: ada@gmail.com
+
+babbage:
+  id: 4
+  uid: 2076158907
+  name: "Charlie Babbage"
+  provider: "github"
+  email: babbage@gmail.com
