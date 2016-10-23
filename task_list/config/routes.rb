@@ -1,30 +1,35 @@
 Rails.application.routes.draw do
 
-  get 'sessions/create'
-
   root to: 'tasks#index', as: 'index'
 
-  get 'tasks/index' => "tasks#index"
+  get "/auth/:provider/callback" =>  "sessions#create"
 
-  get 'tasks/new' => 'tasks#new', as: 'new'
+  delete '/sessions/destroy' => "sessions#destroy", as: 'destroy_session'
 
-  post 'tasks/create' => 'tasks#create', as: 'create'
-
-  get 'tasks/show'
-  get 'tasks/show/:id' => 'tasks#show', as: 'show'
-
-  get 'tasks/destroy'=> "tasks#destroy", as: 'destroy'
-  delete 'tasks/:id/destroy' => 'tasks#destroy'
-
-  get 'tasks/edit/:id'  => "tasks#edit", as: 'edit'
-
-  get 'tasks/update' => "tasks#update"
-  patch 'tasks/update/:id' => "tasks#update", as: 'update'
-
+  resources :tasks, :users, :session
+  # get 'tasks/index' => "tasks#index"
+  #
+  # get 'tasks/new' => 'tasks#new', as: 'new'
+  #
+  # post 'tasks/create' => 'tasks#create', as: 'create'
+  #
+  # get 'tasks/show'
+  # get 'tasks/show/:id' => 'tasks#show', as: 'show'
+  #
+  # get 'tasks/destroy'=> "tasks#destroy", as: 'destroy'
+  # delete 'tasks/:id/destroy' => 'tasks#destroy'
+  #
+  # get 'tasks/edit/:id'  => "tasks#edit", as: 'edit'
+  #
+  # get 'tasks/update' => "tasks#update"
+  # patch 'tasks/update/:id' => "tasks#update", as: 'update'
+  #
   get 'tasks/complete' => "tasks#complete"
   patch 'tasks/complete/:id' => "tasks#complete", as: 'complete'
-
-  get "/auth/:provider/callback" => "sessions#create"
+  #
+  # get "/auth/:provider/callback" => "sessions#create"
+  #
+  # delete 'sessions/destroy' => "sessions#destroy" as: 'logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

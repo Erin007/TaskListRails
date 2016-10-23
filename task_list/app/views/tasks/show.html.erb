@@ -1,7 +1,6 @@
 <p id="full-list-show" ><%=link_to("Task List", index_path) %></p>
 
-<article class="post-it">
-  <!--Add in a link that goes back to the index page  -->
+<article class="post-it-show">
   <h2> <%= @task_of_interest[:title]%> </h2>
 
   <h3> <%= @task_of_interest[:description] %></h3>
@@ -11,18 +10,30 @@
      <% @task_of_interest[:completed_at] = @task_of_interest[:updated_at] %>
      <!--Because I assume the last update made to the task will be to mark it as completed  -->
     ✔︎ Task completed on: <%=@task_of_interest.completed_at.to_formatted_s(:long)%>
+    <ul>
+      <li>
+        <p class="delete-button"><%= button_to "✗", { action: "destroy", id: @task_of_interest.id },  method: :delete, data: { confirm: "Are you sure?" } %></p>
+      </li>
+
+      <li>
+        <p class="edit-button"><%= button_to "Edit", { action: "edit", id: @task_of_interest.id }, method: :get %></p>
+      </li>
+    </ul>
    <%else%>
     ❏This task is NOT completed yet
-      <p class="complete-button"><%= button_to "Complete", { action: "complete", id: @task_of_interest.id, task: { completed: true} }, method: :patch %></p>
+    <ul>
+      <li>
+        <p class="complete-button"><%= button_to "✔︎", { action: "complete", id: @task_of_interest.id, task: { completed: true} }, method: :patch %></p>
+      </li>
+      <li>
+        <p class="delete-button"><%= button_to "✗", { action: "destroy", id: @task_of_interest.id },  method: :delete, data: { confirm: "Are you sure?" } %></p>
+      </li>
+      <li>
+        <p class="edit-button"><%= button_to "Edit", { action: "edit", id: @task_of_interest.id }, method: :get %></p>
+      </li>
+
+      </ul>
    <%end %>
-</p>
-
-<p class="delete-button"><%= button_to "Delete", { action: "destroy", id: @task_of_interest.id },
-
-                            method: :delete, data: { confirm: "Are you sure?" } %></p>
-
-<p class="edit-button"><%= button_to "Edit", { action: "edit", id: @task_of_interest.id },
-
-                                                        method: :get %></p>
+    </p>
 </article>
 <!-- <p>Find me in app/views/tasks/show.html.erb</p> -->

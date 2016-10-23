@@ -1,26 +1,22 @@
-
 <div class="post-it">
-  <p id="add"><%=link_to("Add new task", new_path) %></p>
-  <h1>Task List</h1>
-  <p>
-
-  <% @tasks.each do |task| %>
-    <ul>
-    <% if task.completed == true %>
-        <li><h2><%= link_to("✔︎#{task.title}", show_path(task[:id])) %></h2></li>
-      <%else%>
-        <li><h2><%= link_to("❏#{task.title}", show_path(task[:id])) %></h2></li>
-
-        <li><p class="complete-button-index"><%= button_to "✔︎", { action: "update", id: task.id, task: { completed: true} }, method: :patch %></p></li>
-      <%end %>
-  </p>
-
-  <li><p class="delete-button"><%= button_to "✗", { action: "destroy", id: task.id },
-
-                              method: :delete, data: { confirm: "Are you sure?" } %></p></li>
-    </ul>
-  <% end %>
-
+  <% if session[:user_id] != nil %>
+    <p id="add"><%=link_to("Add new task", new_task_path) %></p>
+    <h1><%=@user.name%>'s Task List</h1>
+    <p>
+    <% @tasks.each do |task| %>
+      <ul>
+      <% if task.completed == true %>
+          <li><h2><%= link_to("✔︎ #{task.title}", task_path(task[:id])) %></h2></li>
+        <%else%>
+          <li><h2><%= link_to("❏ #{task.title}", task_path(task[:id])) %></h2></li>
+          <li><p class="complete-button"><%= button_to "✔︎", { action: "update", id: task.id, task: { completed: true} }, method: :patch %></p></li>
+        <%end %>
+    </p>
+    <li><p class="delete-button"><%= button_to "✗", { action: "destroy", id: task.id }, method: :delete, data: { confirm: "Are you sure?" } %></p></li>
+      </ul>
+    <% end %>
+  <%else%>
+    <h1>Task List</h1>
+    <h3>Login to add tasks to your list.</h3>
+  <%end%>
 </div>
-<!-- <button type="submit"> Delete a Task</button> -->
-<!-- <p>Find me in app/views/tasks/index.html.erb</p> -->

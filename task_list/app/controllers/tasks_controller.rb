@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.all
+    get_current_user
+    if @user != nil
+      @tasks = @user.tasks
+    end
   end
 
   def new
@@ -8,11 +11,12 @@ class TasksController < ApplicationController
   end
 
   def show
-    @tasks = Task.all
+    get_current_user
+    @tasks = Task.where(user_id: @user.id)
     @task_of_interest = nil
 
     @tasks.each do |task|
-      number = params[:id].to_i #params gives you the url, params returns a string that we need to turn into an integer so we can use it
+      number = params[:id].to_i
       if task[:id] == number
         @task_of_interest = task
       end
@@ -43,24 +47,28 @@ class TasksController < ApplicationController
 
   def complete
     task.update_attributes(task_params)
-    redirect_to request.referrer #redirects to whatever page you came from with the updated c
+    redirect_to :back #redirects to whatever page you came from with the updated c
   end
 
   def create
-    @task = Task.new(title: params[:title], description: params[:description])
+    get_current_user
+    @task = Task.new(title: params[:task][:title], description: params[:task][:description], user_id: @user.id)
     @task.save
 
     if @task.save
-        redirect_to index_path, alert: "Task successfully added."
+        redirect_to tasks_path, alert: "Task successfully added."
     else
-        redirect_to new_path, alert: "Error adding task."
+        redirect_to new_task_path, alert: "Error adding task."
     end
   end
 
   private
    def task_params
      #Tells Rails which parameters can be changed
-     params.require(:task).permit(:title, :description, :completed)
+     params.require(:task).permit(:title, :description, :completed, :user_id)
    end
 
+   def get_current_user
+     @user = User.find_by(id: session[:user_id]) # It will figure out the integer thing and return nil if it doesn't find anything
+   end
 end
