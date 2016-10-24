@@ -1,16 +1,57 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-#These fixtures will mimic users that have already logged in the past - we assume that they can pull in their information from Github. The mock hash in the setup method in the test_helper is there to test whether we can correctly connect to Github for authentication
-ada:
+minimal_valid_user:
   id: 1
   uid: 8675309
   name: "Ada Lovelace"
-  provider: "github"
-  email: ada@gmail.com
+  email: ada@lovelacelearning.com
+  provider: github
 
-babbage:
+no_email_user:
+  id: 2
+  uid: 8675309
+  name: "Ada Lovelace"
+  email:
+  provider: github
+
+invalid_email_user:
+  id: 3
+  uid: 8675309
+  name: "Ada Lovelace"
+  email: adalovelace.gmail.com
+  provider: github
+
+no_provider_user:
   id: 4
-  uid: 2076158907
-  name: "Charlie Babbage"
-  provider: "github"
-  email: babbage@gmail.com
+  uid: 8675309
+  name: "Ada Lovelace"
+  email: adalovelace.gmail.com
+  provider:
+
+valid_user_harry:
+  id: 5
+  uid: 8675309
+  name: "Harry Potter"
+  email: harry@hogwards.edu
+  provider: github
+
+valid_user_ron:
+  id: 6
+  uid: 8675309
+  name: "Ron Weasly"
+  email: ron@hogwards.edu
+  provider: github
+# #These fixtures will mimic users that have already logged in the past - we assume that they can pull in their information from Github. The mock hash in the setup method in the test_helper is there to test whether we can correctly connect to Github for authentication
+# ada:
+#   id: 1
+#   uid: 8675309
+#   name: "Ada Lovelace"
+#   provider: "github"
+#   email: ada@gmail.com
+#
+# babbage:
+#   id: 4
+#   uid: 2076158907
+#   name: "Charlie Babbage"
+#   provider: "github"
+#   email: babbage@gmail.com

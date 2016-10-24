@@ -192,7 +192,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
-  minitest-reporters
+  minitest-reporters (~> 1.1, >= 1.1.11)
   omniauth
   omniauth-github
   rails (= 4.2.7)
