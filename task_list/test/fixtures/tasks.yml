@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-adas_task:
-  title: "Write the first code!"
-  description: "Fortran"
-  user: :ada  #Each task belongs to one person; Each user has many tasks. We can use fixtures that reference other fixtures
+harrys_task:
+  title: "Learn new spells"
+  description: "There's more than Expecto Patronum..."
+  user: :harry  #Each task belongs to one person; Each user has many tasks. We can use fixtures that reference other fixtures
   completed: true
   completed_at: 2016-09-28 14:26:30
 
-babbages_task:
-  title: "Make the first computer"
-  description: "Build it!"
-  user: :babbage 
+rons_task:
+  title: "Enter Wizard chess tournament"
+  description: "It's my one real skill."
+  user: :ron
+  completed: false
+  completed_at: 2016-09-28 14:26:30
