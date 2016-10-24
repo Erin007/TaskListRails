@@ -1,42 +1,36 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 minimal_valid_user:
-  id: 1
   uid: 8675309
   name: "Ada Lovelace"
   email: ada@lovelacelearning.com
   provider: github
 
 no_email_user:
-  id: 2
   uid: 8675309
   name: "Ada Lovelace"
   email:
   provider: github
 
 invalid_email_user:
-  id: 3
   uid: 8675309
   name: "Ada Lovelace"
   email: adalovelace.gmail.com
   provider: github
 
 no_provider_user:
-  id: 4
   uid: 8675309
   name: "Ada Lovelace"
   email: adalovelace.gmail.com
   provider:
 
-valid_user_harry:
-  id: 5
+harry:
   uid: 8675309
   name: "Harry Potter"
   email: harry@hogwards.edu
   provider: github
 
-valid_user_ron:
-  id: 6
+ron:
   uid: 8675309
   name: "Ron Weasly"
   email: ron@hogwards.edu
