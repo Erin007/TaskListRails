@@ -69,7 +69,7 @@ class TasksController < ApplicationController
       end
     else #The user isn't logged in
       flash.alert = "You must log in to add tasks to a list."
-    end 
+    end
   end
 
   def complete

@@ -31,7 +31,7 @@ harry:
   provider: github
 
 ron:
-  uid: 8675309
+  uid: 8675305
   name: "Ron Weasly"
   email: ron@hogwards.edu
   provider: github

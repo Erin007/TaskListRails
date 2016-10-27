@@ -6,6 +6,7 @@ class UserTest < ActiveSupport::TestCase
     users(:minimal_valid_user).valid?
     assert users(:minimal_valid_user).valid?
     #Check Ron and Harry's validiity too, because I will use them in controller tests
+    #Well, we didn't need controller tests in the assignment so I'm saving that for later...
     users(:harry).valid?
     assert users(:harry).valid?
     users(:ron).valid?
