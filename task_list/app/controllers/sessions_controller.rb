@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   # raise
 
   flash[:notice] = "Login Failed!"
-  return redirect_to root_path unless auth_hash['uid']  # THe return makes it so nothing after this happens
+  return redirect_to root_path unless auth_hash['uid']  # The return makes it so nothing after this happens
 
   @user = User.find_by(uid: auth_hash[:uid], provider: 'github')  #specifying both because you could log someone in with the same user id on facebook
   if @user.nil?
