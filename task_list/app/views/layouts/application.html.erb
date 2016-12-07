@@ -8,17 +8,17 @@
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 </head>
 
-<body>
-  <header>
-    <%# Links to Login/Logout  %>
-      <% if session[:user_id] == nil %>
-        <p id="login"><%= link_to("Login via Github", "/auth/github") %></p> <%# i.e. "/auth/:provider" %>
-      <% else %>
-        <p id="logout"><%= link_to("Logout", "/sessions/destroy", method: "delete") %></p>
-      <% end %>
-  </header>
+  <body>
+    <header>
+      <%# Links to Login/Logout  %>
+        <% if session[:user_id] == nil %>
+          <p id="login"><%= link_to("Login via Github", "/auth/github") %></p> <%# i.e. "/auth/:provider" %>
+        <% else %>
+          <p id="logout"><%= link_to("Logout", "/sessions/destroy", method: "delete") %></p>
+        <% end %>
+    </header>
 
-  <%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
