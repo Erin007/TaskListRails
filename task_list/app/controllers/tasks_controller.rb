@@ -74,8 +74,9 @@ class TasksController < ApplicationController
 
   def complete
     task.update_attributes(task_params)
-    redirect_to :back #redirects to whatever page you came from with the updated c
+    redirect_to :back 
   end
+
 private
 
    def task
